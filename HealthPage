@@ -1,0 +1,215 @@
+import 'package:flutter/material.dart';
+import 'health.dart';
+import 'education.dart';
+import 'AgriTech.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Wellness Harvest Hub',
+      home: Page(),
+    );
+  }
+}
+
+class Page extends StatefulWidget {
+  const Page({Key? key}) : super(key: key);
+
+  @override
+  State<Page> createState() => _PageState();
+}
+
+class _PageState extends State<Page> {
+
+  void _navigateToHealthPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Health()),
+    );
+  }
+
+  void _navigateToEducationPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Education()),
+    );
+  }
+
+  void _navigateToAgricuturePage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Agriculture()),
+    );
+  }
+
+  int _tap = 0;
+  String _tip = 'list';
+  void _changeIconView() {
+    setState(() {
+      _tap = (_tap + 1) % 4;
+    });
+  }
+
+  IconData _changeIcon() {
+    switch (_tap) {
+      case 0 :{
+        _tip = 'list';
+        return Icons.list;
+      }
+      case 1:
+        _tip = 'large Icon view';
+        return Icons.view_list_rounded;
+      case 2:
+        _tip = 'Compact View';
+        return Icons.zoom_in_map_outlined;
+      case 3:
+        _tip = 'Details';
+        return Icons.view_timeline_sharp;
+      default:
+        return Icons.list;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Wellness Harvest Hub',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.purple,
+        actions: [
+          IconButton(onPressed: _changeIconView, icon: Icon(_changeIcon(),),tooltip: _tip,),
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.call)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.bookmark_add)),
+        ],
+      ),
+      body: new Column(
+        children: [ 
+              new ElevatedButton(onPressed: (){_navigateToEducationPage(context);},
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+              ),
+              child: new Row(
+                children: [
+                  Image.asset('assets/3.png'),
+                  new Text('Education',),
+                ],
+              ),
+            ),
+          new ElevatedButton(onPressed: (){_navigateToHealthPage(context);},
+          style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+              ),
+              child: new Row(
+                children: [
+                  Image.asset('assets/3.png'),
+                  new Text('Health',),
+                ],
+              ),
+            ),
+            new ElevatedButton(onPressed: (){_navigateToAgricuturePage(context);},
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+              ),
+              child: new Row(
+                children: [
+                  Image.asset('assets/3.png'),
+                  new Text('Agriculture',),
+                ],
+              ),
+            ),
+        ],
+      ),
+
+    );
+  }
+}
+class NameList extends StatefulWidget {
+  final List<String> names;
+
+  NameList({required this.names});
+
+  @override
+  _NameListState createState() => _NameListState();
+}
+
+class _NameListState extends State<NameList> {
+  late List<String> displayedNames;
+
+  @override
+  void initState() {
+    super.initState();
+    displayedNames = widget.names;
+  }
+
+  void filterNames(String query) {
+    setState(() {
+      displayedNames = widget.names
+          .where((name) => name.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: TextField(
+            onChanged: filterNames,
+            decoration: InputDecoration(
+              labelText: 'Search Names',
+              hintText: 'Enter a name',
+              prefixIcon: Icon(Icons.search),
+            ),
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: displayedNames.length,
+            itemBuilder: (context, index) {
+              final name = displayedNames[index];
+              return ListTile(
+                title: Text(name),
+                onTap: () {
+                  // Handle tap action here
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Name Tapped'),
+                        content: Text('You tapped on $name'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('OK'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
