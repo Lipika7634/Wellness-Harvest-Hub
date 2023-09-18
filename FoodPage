@@ -1,0 +1,61 @@
+import 'package:flutter/material.dart';
+import 'main.dart';
+
+void main() {
+  runApp(Food());
+}
+
+class Recipe {
+  String name;
+  final List<String> ingredients;
+  final String options;
+
+  Recipe(this.name, this.ingredients, this.options);
+}
+
+class Food extends StatelessWidget {
+  const Food({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Food',
+      home: FoodCare(),
+    );
+  }
+}
+
+class FoodCare extends StatefulWidget {
+  const FoodCare({Key? key});
+
+  @override
+  State<FoodCare> createState() => _FoodCareState();
+}
+
+class _FoodCareState extends State<FoodCare> {
+  List<String> ingredients = [];
+  String options = 'All';
+
+  List<Recipe> recipes = [
+    Recipe('Chicken Popcorn', ['Boneless chicken pieces, cut into small chunks', 'Cornstarch','Vinegar','All purpose flour'], 'Vegetarian'),
+    Recipe('Fried Chicken Legs', ['Vegetable oil for frying','All-purpose flour','Chicken legs or drumsticks'], 'Non-Vegetarian'),
+    Recipe('Vegan Chickpea Curry', ['Cooked rice or naan bread', 'coconut milk','curry powder','Vegetables'], 'Vegan'),
+    Recipe('Vegan Lentil Soup', ['Olive Oil','ground cumin','paprika','brown lentils, rinsed and drained'], 'Vegan'),
+    Recipe('Paneer-Do-Pyaza', ['Coriander powder','Garam masala powder','Fresh coriander leaves for garnish','Paneer','Cooking oil'], 'Vegiterian'),
+    Recipe('Rajma Chawal', ['Rajma','Basmati Rice','turmeric powder','Fresh cilantro leaves for garnish'], 'Vegiterian'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Food'),
+      ),
+      body: Column(
+        children: [
+          // Add your UI elements here
+        ],
+      ),
+    );
+  }
+}
