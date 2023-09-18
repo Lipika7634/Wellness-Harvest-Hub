@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'health.dart';
-import 'education.dart';
+import 'food.dart';
 import 'AgriTech.dart';
 
 void main() {
@@ -38,7 +38,7 @@ class _PageState extends State<Page> {
   void _navigateToEducationPage(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Education()),
+      MaterialPageRoute(builder: (context) => Food()),
     );
   }
 
@@ -102,8 +102,8 @@ class _PageState extends State<Page> {
               ),
               child: new Row(
                 children: [
-                  Image.asset('assets/3.png'),
-                  new Text('Education',),
+                  Image.asset('assets/Food.png',fit: BoxFit.contain, scale: 2.5),
+                  new Text('Food',),
                 ],
               ),
             ),
@@ -114,7 +114,7 @@ class _PageState extends State<Page> {
               ),
               child: new Row(
                 children: [
-                  Image.asset('assets/3.png'),
+                  Image.asset('assets/Health.png',fit: BoxFit.contain, scale: 2.5),
                   new Text('Health',),
                 ],
               ),
@@ -126,7 +126,7 @@ class _PageState extends State<Page> {
               ),
               child: new Row(
                 children: [
-                  Image.asset('assets/3.png'),
+                  Image.asset('assets/Agri.png',fit: BoxFit.contain, scale: 2.5),
                   new Text('Agriculture',),
                 ],
               ),
