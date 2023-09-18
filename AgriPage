@@ -1,0 +1,163 @@
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'main.dart';
+
+void main(){
+  runApp(new Agriculture());
+}
+
+class Agriculture extends StatelessWidget {
+  const Agriculture({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: 'Agriculture',
+      home: AgriCare(),
+    );
+  }
+}
+// suggestions
+// what to do when 
+class AgriCare extends StatefulWidget {
+  const AgriCare({super.key});
+
+  @override
+  State<AgriCare> createState() => _AgriCareState();
+}
+
+class _AgriCareState extends State<AgriCare> {
+
+  TextEditingController input = TextEditingController();
+  String problem = '_________';
+  int idx = 1;
+  List <String> soilLinks = [
+    'https://www.youtube.com/watch?v=_y6_md5ZG-o&pp=ygUbdmlkZW9zIG9uIHRyZWF0bWVudCBvZiBzb2ls',
+    'https://www.youtube.com/watch?v=H0_zj2XM2iQ&pp=ygUbdmlkZW9zIG9uIHRyZWF0bWVudCBvZiBzb2ls',
+    'https://www.youtube.com/watch?v=L14woJZEJnk&pp=ygUbdmlkZW9zIG9uIHRyZWF0bWVudCBvZiBzb2ls',
+    'https://www.youtube.com/watch?v=UDPg4ZoQ1yU&pp=ygUbdmlkZW9zIG9uIHRyZWF0bWVudCBvZiBzb2ls'
+  ];
+  List <String> rootLinks = [
+    'https://www.youtube.com/watch?v=V98uPDevwyA&pp=ygUpdmlkZW9zIG9uIHRyZWF0bWVudCBvZiByb290IG9mIHJlYWwgcGxhbnQ%3D',
+    'https://www.youtube.com/watch?v=EZkneUSV8BA&pp=ygUpdmlkZW9zIG9uIHRyZWF0bWVudCBvZiByb290IG9mIHJlYWwgcGxhbnQ%3D',
+    'https://www.youtube.com/watch?v=T9xfg5NOAuY&pp=ygUpdmlkZW9zIG9uIHRyZWF0bWVudCBvZiByb290IG9mIHJlYWwgcGxhbnQ%3D'
+  ];
+  List <String> stemLinks = [
+    'https://www.youtube.com/watch?v=mi737eyUFWw&pp=ygUpdmlkZW9zIG9uIHRyZWF0bWVudCBvZiBzdGVtIG9mIHJlYWwgcGxhbnQ%3D',
+    'https://www.youtube.com/watch?v=5vem9fyWuss&pp=ygUpdmlkZW9zIG9uIHRyZWF0bWVudCBvZiBzdGVtIG9mIHJlYWwgcGxhbnQ%3D',
+    'https://www.youtube.com/watch?v=qYmy51GrtRk&pp=ygUpdmlkZW9zIG9uIHRyZWF0bWVudCBvZiBzdGVtIG9mIHJlYWwgcGxhbnQ%3D'
+  ];
+  List <String> fruitsLinks = [
+    'https://www.youtube.com/watch?v=5_vbkE9fSMA&pp=ygUqdmlkZW9zIG9uIHRyZWF0bWVudCBvZiBmcnVpdCBvZiByZWFsIHBsYW50',
+    'https://www.youtube.com/watch?v=gO4HUbJ0AH4&pp=ygUqdmlkZW9zIG9uIHRyZWF0bWVudCBvZiBmcnVpdCBvZiByZWFsIHBsYW50'
+  ];
+
+  List <Widget> Buttons = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(title: new Text('Agriculture'),),
+      body: SingleChildScrollView(
+        child: new Column(
+          children: [
+            Padding(padding: EdgeInsets.all(20.0),),
+            Text('Enter the specific problem'),
+            Padding(padding: EdgeInsets.all(20.0),),
+            TextField(
+              controller: input,
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(labelText: 'E.g. soil, root, stem'),
+              onChanged: (text){
+                setState(() {
+                  Buttons.clear();
+                  if(input.text.toLowerCase().startsWith('soil')){
+                    idx = 1;
+                    problem = 'Soil';
+                    for(var link in soilLinks){
+                      Buttons.add(
+                        ElevatedButton(onPressed: (){
+                          launch(link);
+                          }, 
+                          child: new Row(
+                            children: [
+                              Image.asset('assets/Soil.png',fit: BoxFit.contain, scale: 2.5),
+                              Text('Video $idx'),
+                            ],
+                          )),
+                      );
+                      idx++;
+                    }
+                  }else if(input.text.toLowerCase().startsWith('root')){
+                    problem = 'Root';
+                    idx = 1;
+                    for(var link in rootLinks){
+                      Buttons.add(
+                        ElevatedButton(onPressed: (){
+                          launch(link);
+                          }, 
+                          child: new Row(
+                            children: [
+                              Image.asset('assets/Roots.png',fit: BoxFit.contain, scale: 2.5),
+                              Text('Video $idx'),
+                            ],
+                          )),
+                      );
+                      idx++;
+                    }
+                  }else if(input.text.toLowerCase().startsWith('shoot')){
+                    problem = 'Stem';
+                    idx = 1;
+                    for(var link in stemLinks){
+                      Buttons.add(
+                        ElevatedButton(onPressed: (){
+                          launch(link);
+                          }, 
+                          child: new Row(
+                            children: [
+                              Image.asset('assets/Stem.png',fit: BoxFit.contain, scale: 2.5),
+                              Text('Video $idx'),
+                            ],
+                          )),
+                      );
+                      idx++;
+                    }
+                  }else if(input.text.toLowerCase().startsWith('fruits')){
+                    problem = 'Fruits';
+                    idx = 1;
+                    for(var link in fruitsLinks){
+                      Buttons.add(
+                        ElevatedButton(onPressed: (){
+                          launch(link);
+                          }, 
+                          child: new Row(
+                            children: [
+                              Image.asset('assets/Fruits.png',fit: BoxFit.contain, scale: 2.5),
+                              Text('Video $idx'),
+                            ],
+                          )),
+                      );
+                      idx++;
+                    }
+                  }
+                });
+              },
+            ),
+            Padding(padding: EdgeInsets.all(20.0),),
+            Text('You have selected solutions for $problem-related problems'),
+            Text('Click below are the solutions for it:'),
+            Padding(padding: EdgeInsets.all(10.0),),
+            
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: Buttons.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Buttons[index];
+              },
+            ),
+        ],
+      ),
+    ),
+    );
+  }
+}
