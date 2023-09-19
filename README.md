@@ -16,20 +16,20 @@
 3. ScreenShots:
  Check out these cool snapshots from my mobile app to get a better feel for what my app is all about! =>
    
-Main Page View:
+a) Main Page View:
 
 
 <img width="232" alt="image" src="https://github.com/Lipika7634/Wellness-Harvest-Hub/assets/139308952/ccb81f90-b30c-4304-af9e-7a9074d80f1f">
 
 
 
-Health Page View:
+b) Health Page View:
 
 
 ![image](https://github.com/Lipika7634/Wellness-Harvest-Hub/assets/139308952/5dc4e856-423b-4c27-9f65-51db834a5ee1)
 
 
-Agriculture Page View:
+c) Agriculture Page View:
 
 
 
