@@ -10,8 +10,10 @@ Welcome to 'Wellness Harvest Hub,' where Agriculture, Health, and Food meet in a
 
 2. Primary goals of this app are to:
   a) In Health Page, you can check your BMI by entering some necessary details.
-  b) In Agriculture Page, you can enter the specific plant part you need help with, and our app will recommend relevant videos      to assist you.
-  c) In Food Page, you can enter the type of food you want to eat and a list of related food will appear in the drop-down menu.
+  b) In Agriculture Page, you can enter the specific plant part you need help with, and our app will recommend relevant     
+      videos to assist you.
+  c) In Food Page, you can enter the type of food you want to eat and a list of related food will appear in the drop-down 
+     menu.
 
 3. Key Features:
    a) Calculate your BMI for better health.
