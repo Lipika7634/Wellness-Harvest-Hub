@@ -11,14 +11,19 @@
   c) In Food Page, you can enter the type of food you want to eat and a list of related food will appear in the drop-down menu.
 2. Features:
   a) Navigate between mutiple pages using elevated button
-  b) 
+  b)
+
 3. ScreenShots:
-   Check out these cool snapshots from my mobile app to get a better feel for what my app is all about! =>
+ Check out these cool snapshots from my mobile app to get a better feel for what my app is all about! =>
+   
 Main Page View:
 <img width="232" alt="image" src="https://github.com/Lipika7634/Wellness-Harvest-Hub/assets/139308952/ccb81f90-b30c-4304-af9e-7a9074d80f1f">
 
+
 Health Page View:
 ![image](https://github.com/Lipika7634/Wellness-Harvest-Hub/assets/139308952/5dc4e856-423b-4c27-9f65-51db834a5ee1)
+
+
 
 Agriculture Page View:
 <img width="216" alt="image" src="https://github.com/Lipika7634/Wellness-Harvest-Hub/assets/139308952/dd013bd0-713f-4008-9ade-ce6a9ebe5125">
