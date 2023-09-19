@@ -24,8 +24,11 @@ Health Page View:
 ![image](https://github.com/Lipika7634/Wellness-Harvest-Hub/assets/139308952/5dc4e856-423b-4c27-9f65-51db834a5ee1)
 
 
-
 Agriculture Page View:
+
+
+
+
 <img width="216" alt="image" src="https://github.com/Lipika7634/Wellness-Harvest-Hub/assets/139308952/dd013bd0-713f-4008-9ade-ce6a9ebe5125">
 
 ![image](https://github.com/Lipika7634/Wellness-Harvest-Hub/assets/139308952/5848afe7-adc6-44e9-ad80-9b642a427983)
